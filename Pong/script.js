@@ -1,11 +1,11 @@
-let paddleWidth = 70
-let paddleHeight = 100
+let paddleWidth = 80 // paddleWidth is used in determining if the ball has made contact with the paddle
+let paddleHeight = 180 // affects how far down the screen the paddle can travel. Bigger number = less available space at bottom of screen. Not sure why?
 
-let rightPaddleSpeed = 0
+let rightPaddleSpeed = 500;
 let rightPaddlePosition = 220;
 
 let leftPaddleSpeed = 0;
-let leftPaddlePosition = 220;
+let leftPaddlePosition = 100;
 
 let halfPaddleHeight
 
@@ -16,18 +16,18 @@ let ballPositionLeft = 820;
 let leftSpeedofBall= 0;
 let topSpeedofBall = 10;
 
-let side = 0;
+let side = 0; // Used in determining direction of travel of ball at start of play. It is randomly calculated to be equal to 1 or -1. This value is then used in a further calcuation to determine the direction and speed of the ball.
 
-let playerScore = 0;
-let compScore = 0;
+let playerScore = 0; // Variables holding scores
+let compScore = 0;   //
+let playerScoreDisplay= document.getElementById("playerScore"); // Variables holding the <p> element in the HTML to display scores.
+let compScoreDisplay= document.getElementById("compScore"); //
 
-let playerScoreDisplay= document.getElementById("playerScore");
-let compScoreDisplay= document.getElementById("compScore");
+let resetButton = document.getElementById("reset"); // Variables holding the <button> element in the HTML to reset the game.
+resetButton.addEventListener("click", resetGame) // Event listener added to reset button so that when clicked the resetGame function is called.
 
-let resetButton = document.getElementById("reset");
 
-resetButton.addEventListener("click", resetGame)
-
+// The reset game function is called when the reset button is clicked. If sets both scores to 0, and calls the startBall function. As part of this function the text content of the <P> elements displaying the scores is updated to reflect the new zero values.
 function resetGame(){
     playerScore=0
     compScore=0
