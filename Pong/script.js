@@ -24,7 +24,15 @@ let compScore = 0;
 let playerScoreDisplay= document.getElementById("playerScore");
 let compScoreDisplay= document.getElementById("compScore");
 
+let resetButton = document.getElementById("reset");
 
+resetButton.addEventListener("click", resetGame)
+
+function resetGame(){
+    playerScore=0
+    compScore=0
+    startBall()
+}
 
 document.addEventListener('keydown', movePaddle)
 document.addEventListener('keyup', stopPaddle)
